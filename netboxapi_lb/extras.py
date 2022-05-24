@@ -8,8 +8,8 @@ urllib3.disable_warnings()
 
 class EXTRAS(BaseConnection):
 
-    def __init__(self,ip,token):
-        super().__init__(ip,token)
+    def __init__(self,ip,token,protocol):
+        super().__init__(ip,token,protocol)
 
 #----------------------------------------------------------------------------------------------
 # GET METHODS
@@ -19,7 +19,7 @@ class EXTRAS(BaseConnection):
         """
         Gets a list of all images attached to network
         """
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",
@@ -50,7 +50,7 @@ class EXTRAS(BaseConnection):
         """
         data = json.dumps(data,indent=4)
 
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",

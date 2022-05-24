@@ -8,8 +8,8 @@ urllib3.disable_warnings()
 
 class ORGANIZATION(BaseConnection):
 
-    def __init__(self,ip,token):
-        super().__init__(ip,token)
+    def __init__(self,ip,token,protocol):
+        super().__init__(ip,token,protocol)
 #----------------------------------------------------------------------------------------------
 # GET METHODS
 #----------------------------------------------------------------------------------------------
@@ -17,7 +17,7 @@ class ORGANIZATION(BaseConnection):
         """
         Gets a list of all sites on Netbox, Pass filter to filter results
         """
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",
@@ -42,7 +42,7 @@ class ORGANIZATION(BaseConnection):
         """
         Gets a list of all Tenants on Netbox, Pass filter to filter results
         """
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",

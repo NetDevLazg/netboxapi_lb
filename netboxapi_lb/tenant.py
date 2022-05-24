@@ -8,8 +8,8 @@ urllib3.disable_warnings()
 
 class TENANT(BaseConnection):
 
-    def __init__(self,ip,token):
-        super().__init__(ip,token)
+    def __init__(self,ip,token,protocol):
+        super().__init__(ip,token,protocol)
 #----------------------------------------------------------------------------------------------
 # GET METHODS
 #----------------------------------------------------------------------------------------------
@@ -19,7 +19,7 @@ class TENANT(BaseConnection):
         Path: Organization > Tenant 
         """
 
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",
