@@ -8,8 +8,8 @@ urllib3.disable_warnings()
 
 class VIRTUALIZATION(BaseConnection):
 
-    def __init__(self,ip,token):
-        super().__init__(ip,token)
+    def __init__(self,ip,token,protocol):
+        super().__init__(ip,token,protocol)
 #----------------------------------------------------------------------------------------------
 # GET METHODS
 #----------------------------------------------------------------------------------------------
@@ -17,7 +17,7 @@ class VIRTUALIZATION(BaseConnection):
         """
         Gets a list of all virtual machines on Netbox, Pass filter to filter results
         """
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",
@@ -42,7 +42,7 @@ class VIRTUALIZATION(BaseConnection):
         """
         Gets a list of all virtualization clusters on Netbox, Pass filter to filter results
         """
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",
@@ -67,7 +67,7 @@ class VIRTUALIZATION(BaseConnection):
         """
         Gets a list of all virtualization clusters types on Netbox, Pass filter to filter results
         """
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",
@@ -93,7 +93,7 @@ class VIRTUALIZATION(BaseConnection):
         """
         Gets a list of all virtualization clusters groups on Netbox, Pass filter to filter results
         """
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",
@@ -118,7 +118,7 @@ class VIRTUALIZATION(BaseConnection):
         """
         Gets a list of all virtual machine interfaces on Netbox, Pass filter to filter results
         """
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",
@@ -150,7 +150,7 @@ class VIRTUALIZATION(BaseConnection):
         """
         data = json.dumps(data,indent=4)
 
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",
@@ -171,7 +171,7 @@ class VIRTUALIZATION(BaseConnection):
         """
         data = json.dumps(data,indent=4)
 
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",
@@ -191,7 +191,7 @@ class VIRTUALIZATION(BaseConnection):
         """
         data = json.dumps(data,indent=4)
 
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",
@@ -216,7 +216,7 @@ class VIRTUALIZATION(BaseConnection):
         """
         data = json.dumps(data,indent=4)
 
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",

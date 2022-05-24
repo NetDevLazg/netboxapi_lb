@@ -8,8 +8,8 @@ urllib3.disable_warnings()
 
 class USER(BaseConnection):
 
-    def __init__(self, ip, token):
-        super().__init__(ip, token)
+    def __init__(self, ip, token,protocol):
+        super().__init__(ip, token,protocol)
 
 # ----------------------------------------------------------------------------------------------
 # GET METHODS
@@ -21,7 +21,7 @@ class USER(BaseConnection):
         Path: Admin  > Users > Groups 
         """
 
-        url_base = "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                    "Accept": "application/json",
@@ -48,7 +48,7 @@ class USER(BaseConnection):
         Path: Admin  > Users > Permissions 
         """
 
-        url_base = "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                    "Accept": "application/json",
@@ -79,7 +79,7 @@ class USER(BaseConnection):
         """
         data = json.dumps(data, indent=4)
 
-        url_base = "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                    "Accept": "application/json",
@@ -98,7 +98,7 @@ class USER(BaseConnection):
         """
         data = json.dumps(data, indent=4)
 
-        url_base = "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                    "Accept": "application/json",

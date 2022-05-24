@@ -8,8 +8,8 @@ urllib3.disable_warnings()
 class IPAM(BaseConnection):
 
 
-    def __init__(self,ip,token):
-        super().__init__(ip,token)
+    def __init__(self,ip,token,protocol):
+        super().__init__(ip,token,protocol)
 
 #----------------------------------------------------------------------------------------------
 # GET METHODS
@@ -22,7 +22,7 @@ class IPAM(BaseConnection):
         If using filters please fill fuctions as folow.
         filter="name=test"
         """
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",
@@ -49,7 +49,7 @@ class IPAM(BaseConnection):
         If using filters please fill fuctions as folow.
         filter="name=test"
         """
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",
@@ -76,7 +76,7 @@ class IPAM(BaseConnection):
         If using filters please fill fuctions as folow.
         filter="name=test"
         """
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",
@@ -102,7 +102,7 @@ class IPAM(BaseConnection):
         If using filters please fill fuctions as folow.
         filter="name=test"
         """
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",
@@ -129,7 +129,7 @@ class IPAM(BaseConnection):
         If using filters please fill fuctions as folow.
         filter="name=test"
         """
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",
@@ -155,7 +155,7 @@ class IPAM(BaseConnection):
         If using filters please fill fuctions as folow.
         filter="name=test"
         """
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",
@@ -185,7 +185,7 @@ class IPAM(BaseConnection):
         """
         data = json.dumps(data,indent=4)
 
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",
@@ -205,7 +205,7 @@ class IPAM(BaseConnection):
         """
         data = json.dumps(data,indent=4)
 
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",
@@ -225,7 +225,7 @@ class IPAM(BaseConnection):
         """
         data = json.dumps(data,indent=4)
 
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",
@@ -245,7 +245,7 @@ class IPAM(BaseConnection):
         """
         data = json.dumps(data,indent=4)
 
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",
@@ -265,7 +265,7 @@ class IPAM(BaseConnection):
         """
         data = json.dumps(data,indent=4)
 
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",
@@ -289,7 +289,7 @@ class IPAM(BaseConnection):
         """
         data = json.dumps(data,indent=4)
 
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",
@@ -309,7 +309,7 @@ class IPAM(BaseConnection):
         """
         data = json.dumps(data,indent=4)
 
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",
@@ -329,7 +329,7 @@ class IPAM(BaseConnection):
         """
         data = json.dumps(data,indent=4)
 
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",
@@ -349,7 +349,7 @@ class IPAM(BaseConnection):
         """
         data = json.dumps(data,indent=4)
 
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",
@@ -370,7 +370,7 @@ class IPAM(BaseConnection):
         """
         data = json.dumps(data,indent=4)
 
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",
@@ -394,7 +394,7 @@ class IPAM(BaseConnection):
         Deletes an ip address on Netbox, Must pass ID
         """
 
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",
@@ -412,7 +412,7 @@ class IPAM(BaseConnection):
         Deletes an IPAM RIR on Netbox, Must pass ID
         """
 
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",
@@ -431,7 +431,7 @@ class IPAM(BaseConnection):
         Deletes an IPAM Aggregates on Netbox, Must pass ID
         """
 
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",
@@ -450,7 +450,7 @@ class IPAM(BaseConnection):
         Deletes an IPAM Roles on Netbox, Must pass ID
         """
 
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",
@@ -468,7 +468,7 @@ class IPAM(BaseConnection):
         Deletes an IPAM Prefixes on Netbox, Must pass ID
         """
 
-        url_base =  "http://{ip}/api".format(ip=self.ip)
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
 
         headers = {"Content-type": "application/json",
                     "Accept": "application/json",
