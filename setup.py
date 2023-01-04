@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name='netboxapi_lb',
-    version='2.0.6',
+    version='2.0.7',
     author='Lazaro Mas',
     author_email='kentik.hanzo94@gmail.com',
     description='Python3 Package to call Netbox API',
