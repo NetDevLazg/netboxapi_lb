@@ -174,6 +174,31 @@ class IPAM(BaseConnection):
         else:
             return get_prefixes.status_code
 
+    def get_asn(self,**filter):
+        """
+        Gets a list of IPAM ASN on Netbox.
+        Path: IPAM>ASN.
+        If using filters please fill fuctions as folow.
+        filter="name=test"
+        """
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
+
+        headers = {"Content-type": "application/json",
+                    "Accept": "application/json",
+                    "Authorization" : "Token  {token}".format(token=self.token)}
+
+        if len(filter) == 0:
+            get_asns = requests.get(url=url_base+"/ipam/asns/",
+                                headers=headers,
+                                verify=False)
+        if len(filter) == 1:
+            get_asns = requests.get(url=url_base+"/ipam/asns/?{}".format(filter["filter"]),
+                    headers=headers,
+                    verify=False)
+        if get_asns.status_code == 200:
+            return get_asns.json()['results']
+        else:
+            return get_asns.status_code
 
 #----------------------------------------------------------------------------------------------
 # POST METHODS
@@ -278,6 +303,26 @@ class IPAM(BaseConnection):
                 data=data)
         
         return create_prefixes
+
+    def create_asns(self, data):
+        """
+        Creates a IPAM ASNS on Netbox, Must pass data
+        """
+        data = json.dumps(data,indent=4)
+
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
+
+        headers = {"Content-type": "application/json",
+                    "Accept": "application/json",
+                    "Authorization" : "Token  {token}".format(token=self.token)}
+
+
+        create_asns = requests.post(url=url_base+"/ipam/asns/",
+                headers=headers,
+                verify=False,
+                data=data)
+        
+        return create_asns
 
 #----------------------------------------------------------------------------------------------
 # PATCH METHODS
@@ -385,6 +430,26 @@ class IPAM(BaseConnection):
         return patch_prefixes
 
 
+    def patch_asns(self, id ,data):
+        """
+        Patches an IPAM ASNS on Netbox, Must pass data
+        """
+        data = json.dumps(data,indent=4)
+
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
+
+        headers = {"Content-type": "application/json",
+                    "Accept": "application/json",
+                    "Authorization" : "Token  {token}".format(token=self.token)}
+
+
+        patch_asns = requests.patch(url=url_base+"/ipam/asns/{}/".format(id),
+                headers=headers,
+                verify=False,
+                data=data)
+        
+        return patch_asns
+
 #----------------------------------------------------------------------------------------------
 # DELETE METHODS
 #----------------------------------------------------------------------------------------------
@@ -480,3 +545,22 @@ class IPAM(BaseConnection):
                 verify=False,)
         
         return delete_prefixes
+
+
+    def delete_asns(self, id):
+        """
+        Deletes an IPAM ASNS on Netbox, Must pass ID
+        """
+
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
+
+        headers = {"Content-type": "application/json",
+                    "Accept": "application/json",
+                    "Authorization" : "Token  {token}".format(token=self.token)}
+
+
+        delete_asns = requests.delete(url=url_base+"/ipam/asns/{}/".format(id),
+                headers=headers,
+                verify=False,)
+        
+        return delete_asns
