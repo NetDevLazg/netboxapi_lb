@@ -324,6 +324,26 @@ class IPAM(BaseConnection):
         
         return create_asns
 
+    def create_vlan(self, data):
+        """
+        Creates a IPAM VLAN on Netbox, Must pass data
+        """
+        data = json.dumps(data,indent=4)
+
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
+
+        headers = {"Content-type": "application/json",
+                    "Accept": "application/json",
+                    "Authorization" : "Token  {token}".format(token=self.token)}
+
+
+        create_asns = requests.post(url=url_base+"/ipam/vlans/",
+                headers=headers,
+                verify=False,
+                data=data)
+        
+        return create_asns
+
 #----------------------------------------------------------------------------------------------
 # PATCH METHODS
 #----------------------------------------------------------------------------------------------
@@ -450,6 +470,26 @@ class IPAM(BaseConnection):
         
         return patch_asns
 
+    def patch_vlan(self, id ,data):
+        """
+        Patches an IPAM VLAN on Netbox, Must pass data
+        """
+        data = json.dumps(data,indent=4)
+
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
+
+        headers = {"Content-type": "application/json",
+                    "Accept": "application/json",
+                    "Authorization" : "Token  {token}".format(token=self.token)}
+
+
+        patch_asns = requests.patch(url=url_base+"/ipam/vlans/{}/".format(id),
+                headers=headers,
+                verify=False,
+                data=data)
+        
+        return patch_asns
+
 #----------------------------------------------------------------------------------------------
 # DELETE METHODS
 #----------------------------------------------------------------------------------------------
@@ -560,6 +600,25 @@ class IPAM(BaseConnection):
 
 
         delete_asns = requests.delete(url=url_base+"/ipam/asns/{}/".format(id),
+                headers=headers,
+                verify=False,)
+        
+        return delete_asns
+
+
+    def delete_vlan(self, id):
+        """
+        Deletes an IPAM VLAN on Netbox, Must pass ID
+        """
+
+        url_base = "{protocol}://{ip}/api".format(protocol=self.protocol,ip=self.ip)
+
+        headers = {"Content-type": "application/json",
+                    "Accept": "application/json",
+                    "Authorization" : "Token  {token}".format(token=self.token)}
+
+
+        delete_asns = requests.delete(url=url_base+"/ipam/vlans/{}/".format(id),
                 headers=headers,
                 verify=False,)
         
